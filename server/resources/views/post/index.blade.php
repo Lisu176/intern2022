@@ -11,7 +11,7 @@
 <!-- table -->
   <table class="table table-striped">
   <tr>
-        <td>投稿ID</td>
+        <td style="width:70px">投稿ID</td>
         <td>タイトル</td>
         <td>コメント</td>
         <td style="width:100px">投稿時間</td>
@@ -23,12 +23,15 @@
 
 <!-- loop -->
     @foreach($posts as $post)
+    @foreach($categories as $category)
     <tr>
         <td>{{$post->id}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->comment}}</td>
         <td>{{$post->created_at}}</td>
-        <td>{{$post->category_id}}</td>
+        @foreach($category->categories as $categoryName)
+        <td>{{$categoryName->name}}</td>
+        @endforeach
         <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">詳細</a></td>
         <td><a href="{{ route('post.edit', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
         <td>
@@ -40,6 +43,7 @@
             </form>
         </td>
     </tr>
+    @endforeach
   @endforeach
   </table>
 @endsection

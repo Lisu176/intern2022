@@ -16,9 +16,12 @@ class PostController extends Controller
      */
     public function index()
     {
+        $categories = Post::with('categories')->get();
+
         $posts = Post::all();
-        // dd(Post::with('categories'));
-        return view('post.index',compact('posts'));
+
+        // dd($cats[0]->categories[0]->name);
+        return view('post.index',compact('posts','categories'));
     }
 
     public function show()
@@ -45,15 +48,11 @@ class PostController extends Controller
      */
     public function store(Request $request, Post $post)
     {
-
         $post = Post::create([
             'name'=>$request['name'],
             'title'=>$request['title'],
             'comment'=>$request['comment'],
         ]);
-
-        // $post->categories()->sync($request->input('category_id'));
-
 
         return redirect()->route('post.index');
     }
