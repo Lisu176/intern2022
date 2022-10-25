@@ -30,7 +30,7 @@
         <td>{{$post->comment}}</td>
         <td>{{$post->created_at}}</td>
         @foreach($category->categories as $categoryName)
-        <td>{{$categoryName->name}}</td>
+            <td>{{$categoryName->name}}</td>
         @endforeach
         <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">詳細</a></td>
         <td><a href="{{ route('post.edit', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
@@ -44,6 +44,6 @@
         </td>
     </tr>
     @endforeach
-  @endforeach
+    @endforeach
   </table>
 @endsection
