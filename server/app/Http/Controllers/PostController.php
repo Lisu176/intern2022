@@ -46,13 +46,13 @@ class PostController extends Controller
     public function store(Request $request, Post $post)
     {
 
-        $posts = Post::create([
+        $post = Post::create([
             'name'=>$request['name'],
             'title'=>$request['title'],
             'comment'=>$request['comment'],
         ]);
 
-        $posts->categories()->sync($request->input('category_id'));
+        // $post->categories()->sync($request->input('category_id'));
 
 
         return redirect()->route('post.index');
@@ -65,8 +65,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        // 受け取ったidを元にpostテーブルからレコードを検索
-        $post = Post::findOrFail($id);
+        // dd($post);
         // 検索結果をビューに渡す
         return view('post.edit')->with('post',$post);
     }

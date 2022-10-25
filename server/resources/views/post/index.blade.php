@@ -14,11 +14,11 @@
         <td>投稿ID</td>
         <td>タイトル</td>
         <td>コメント</td>
-        <td>投稿時間</td>
+        <td style="width:100px">投稿時間</td>
         <td>カテゴリ</td>
-        <td colspan=”3”>各種操作</td>
-        <td></td>
-        <td></td>
+        <td colspan=”3” style="width:75px"></td>
+        <td style="width:75px">各種操作</td>
+        <td style="width:75px"></td>
     </tr>
 
 <!-- loop -->
