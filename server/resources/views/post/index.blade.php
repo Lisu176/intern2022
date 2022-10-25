@@ -10,26 +10,36 @@
   </div>
 <!-- table -->
   <table class="table table-striped">
+  <tr>
+        <td>投稿ID</td>
+        <td>タイトル</td>
+        <td>コメント</td>
+        <td>投稿時間</td>
+        <td>カテゴリ</td>
+        <td colspan=”3”>各種操作</td>
+        <td></td>
+        <td></td>
+    </tr>
 
 <!-- loop -->
-  @foreach($posts as $post)
-      <tr>
-          <td>{{$post->id}}</td>
-          <td>{{$post->title}}</td>
-          <td>{{$post->comment}}</td>
-          <td>{{$post->created_at}}</td>
-          <td>{{$post->category_id}}</td>
-          <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">詳細</a></td>
-          <td><a href="{{ route('post.edit', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
-          <td>
-              <form method="post"  action="{{ route('post.destroy', ['post'=>$post->id]) }}">
-                  <input type="hidden" name="_token" value="{{csrf_token()}}">
-                  <input type="submit" value="削除" class="btn btn-danger btn-sm btn-destroy">
-                  @csrf
-                  @method('DELETE')
-              </form>
-          </td>
-      </tr>
+    @foreach($posts as $post)
+    <tr>
+        <td>{{$post->id}}</td>
+        <td>{{$post->title}}</td>
+        <td>{{$post->comment}}</td>
+        <td>{{$post->created_at}}</td>
+        <td>{{$post->category_id}}</td>
+        <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">詳細</a></td>
+        <td><a href="{{ route('post.edit', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
+        <td>
+            <form method="post"  action="{{ route('post.destroy', ['post'=>$post->id]) }}">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="submit" value="削除" class="btn btn-danger btn-sm btn-destroy">
+                @csrf
+                @method('DELETE')
+            </form>
+        </td>
+    </tr>
   @endforeach
   </table>
 @endsection
