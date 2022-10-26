@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\CategoryPost;
 
+
 class PostController extends Controller
 {
     /**
@@ -16,12 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $categories = Post::with('categories')->get();
+        $posts = Post::with('categories')->get();
 
-        $posts = Post::all();
-
-        // dd($cats[0]->categories[0]->name);
-        return view('post.index',compact('posts','categories'));
+        return view('post.index',compact('posts'));
     }
 
     public function show()
@@ -102,5 +100,18 @@ class PostController extends Controller
         Post::findOrfail($id)->delete();
         //リダイレクト
         return redirect()->to('/post/index');
+    }
+
+    public function addcategory(){
+        return view('post.addcategory');
+    }
+
+    public function add(Post $post, Request $request)
+    {
+        $post = Post::addcategory([
+            'name'=>$request['category'],
+        ]);
+
+        return redirect()->route('post.index');
     }
 }

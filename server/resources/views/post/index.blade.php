@@ -2,13 +2,12 @@
 
 @section('content')
 <h1>一覧表示</h1>
-<!-- 新規投稿 -->
  <div class="row">
       <div class="col-sm-12">
           <a href="{{ route('post.create') }}" class="btn btn-primary" style="margin:20px;">新規投稿</a>
+          {{-- <a href="{{ route('post.addcategory') }}" class="btn btn-primary" style="margin:20px;">カテゴリ追加</a>  --}}
       </div>
   </div>
-<!-- table -->
   <table class="table table-striped">
   <tr>
         <td style="width:70px">投稿ID</td>
@@ -21,17 +20,18 @@
         <td style="width:75px"></td>
     </tr>
 
-<!-- loop -->
     @foreach($posts as $post)
-    @foreach($categories as $category)
     <tr>
         <td>{{$post->id}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->comment}}</td>
         <td>{{$post->created_at}}</td>
-        @foreach($category->categories as $categoryName)
-            <td>{{$categoryName->name}}</td>
-        @endforeach
+        <td>
+            @forelse($post->categories as $category)
+                {{$category->name}}
+            @empty
+            @endforelse
+        </td>
         <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">詳細</a></td>
         <td><a href="{{ route('post.edit', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
         <td>
@@ -43,7 +43,6 @@
             </form>
         </td>
     </tr>
-    @endforeach
     @endforeach
   </table>
 @endsection

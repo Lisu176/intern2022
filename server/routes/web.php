@@ -17,9 +17,6 @@ use App\Http\Controllers\PostController;
 */
 // ToDo: Postコントローラをルートに登録する
 
-// Route::resource('/post', PostController::class);
-// Route::resource('/create', PostController::class);
-
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
