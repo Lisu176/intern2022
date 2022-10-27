@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!')}}
-                    {{-- <a href="{{route('next.bbs')}}">次ページへ</a> --}}
+                    <a href="{{route('post.index')}}">次ページへ</a>
                 </div>
             </div>
         </div>

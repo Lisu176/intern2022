@@ -102,16 +102,4 @@ class PostController extends Controller
         return redirect()->to('/post/index');
     }
 
-    public function addcategory(){
-        return view('post.addcategory');
-    }
-
-    public function add(Post $post, Request $request)
-    {
-        $post = Post::addcategory([
-            'name'=>$request['category'],
-        ]);
-
-        return redirect()->route('post.index');
-    }
 }

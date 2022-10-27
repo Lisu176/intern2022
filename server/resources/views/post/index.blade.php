@@ -4,8 +4,8 @@
 <h1>一覧表示</h1>
  <div class="row">
       <div class="col-sm-12">
-          <a href="{{ route('post.create') }}" class="btn btn-primary" style="margin:20px;">新規投稿</a>
-          {{-- <a href="{{ route('post.addcategory') }}" class="btn btn-primary" style="margin:20px;">カテゴリ追加</a>  --}}
+        <a href="{{ route('post.create') }}" class="btn btn-primary" style="margin:20px;">新規投稿</a>
+        <a href="{{ route('add.edit') }}" class="btn btn-primary" style="margin:20px;">カテゴリ追加</a>
       </div>
   </div>
   <table class="table table-striped">
