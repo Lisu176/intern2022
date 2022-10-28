@@ -2,10 +2,10 @@
 
 @section('content')
     <div style="margin:0 auto; text-align:center;">
-        <form action="{{ route('add.create') }}" method="POST" >
+        <form action="{{ route('add.edit') }}" method="POST" >
             @csrf
             <div>
-                カテゴリ名<br><input name="category" placeholder="カテゴリの入力欄"/>
+                カテゴリ名<br><input name="name" placeholder="カテゴリの入力欄"/>
             </div>
             <button>送信</button>
         </form>

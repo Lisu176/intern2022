@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\CategoryPost;
+use App\Models\Post;
 
 class CategoryController extends Controller
 {
-    public function edit(){
-        return view('add.create');
+    public function index(){
+        return view('category.edit');
     }
 
-    public function create(Request $request, Post $post)
+    public function edit(Request $request, Post $post)
     {
-        $post = POST::category([
-            'name'=>$request['category'],
-        ]);
+        // $post = $request->all();
+       $post->testForMe();
 
         return redirect()->route('post.index');
     }

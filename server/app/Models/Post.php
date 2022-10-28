@@ -16,7 +16,17 @@ class Post extends Model
         'category_id',
     ];
 
+    public function findPostByPostId($id)
+    {
+        return $this->find($id);
+    }
+
+    // リレーション
     public function categories(){
         return $this->belongsToMany(Category::class);
+    }
+
+    public function testForMe(){
+        return dd('Hello World');
     }
 }

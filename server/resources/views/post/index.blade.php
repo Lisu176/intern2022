@@ -32,7 +32,7 @@
             @empty
             @endforelse
         </td>
-        <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">詳細</a></td>
+        <td><a href="{{ route('post.show', ['post'=>$post->id]) }}" value="{{ $post->id }}" class="btn btn-primary btn-sm">詳細</a></td>
         <td><a href="{{ route('post.edit', ['post'=>$post->id]) }}" class="btn btn-primary btn-sm">編集</a></td>
         <td>
             <form method="post"  action="{{ route('post.destroy', ['post'=>$post->id]) }}">

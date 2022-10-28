@@ -22,8 +22,10 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/add',[CategoryController::class, 'index'])->name('edit');
-// Route::get('/add',[CategoryController::class, 'index'])->name('newcategory');
+Route::get('/add',[CategoryController::class, 'index']);
+
+Route::post('/add',[CategoryController::class, 'edit'])->name('add.edit');
+
 
 Route::resource('/post', PostController::class);
 Auth::routes();

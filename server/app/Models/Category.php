@@ -16,4 +16,7 @@ class Category extends Model
 
         return $this->belongsToMany(Post::class);
     }
+    public function testForMe(){
+        return dd('Hello World');
+    }
 }

@@ -22,11 +22,13 @@ class PostController extends Controller
         return view('post.index',compact('posts'));
     }
 
-    public function show()
+    public function show(POST $post)
     {
+        // $posts = Post::with('categories')->get();
 
+        // return view('post.show',compact('posts,post'));
 
-        return redirect()->route('post.index');
+        // 後指定したIDのみ引き出す
     }
 
     /**
@@ -84,7 +86,7 @@ class PostController extends Controller
         //保存（更新）
         $post->save();
         //リダイレクト
-        return redirect()->to('/post/index');
+        return redirect()->route('post.index');
     }
 
     /**
